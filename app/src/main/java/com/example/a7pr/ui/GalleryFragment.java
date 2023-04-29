@@ -15,7 +15,7 @@ import com.example.a7pr.Adapters.CustomAdapter;
 import com.example.a7pr.Data.Models.Exhibit;
 import com.example.a7pr.R;
 import com.example.a7pr.databinding.FragmentGalleryBinding;
-import com.example.a7pr.state_holder.GalleryViewModel;
+import com.example.a7pr.ui.state_holder.GalleryViewModel;
 
 import java.util.List;
 

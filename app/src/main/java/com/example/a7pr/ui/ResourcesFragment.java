@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.a7pr.Data.Models.Exhibit;
 import com.example.a7pr.R;
 import com.example.a7pr.databinding.FragmentResourcesBinding;
-import com.example.a7pr.state_holder.ResourcesViewModel;
+import com.example.a7pr.ui.state_holder.ResourcesViewModel;
 
 import java.util.List;
 

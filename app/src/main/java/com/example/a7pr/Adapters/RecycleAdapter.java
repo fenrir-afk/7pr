@@ -18,19 +18,18 @@ import com.example.a7pr.R;
 import java.util.List;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
-    Context context;
+
     public List<Exhibit> listData;
     String description;
     int id;
-    public RecycleAdapter(Context context, List<Exhibit> exhibits) {
-        this.context = context;
+    public RecycleAdapter(List<Exhibit> exhibits) {
         this.listData = exhibits;
     }
 
     @NonNull
     @Override
     public RecycleAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.customlayout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.customlayout,parent,false);
         return new ViewHolder(view);
     }
 

@@ -13,7 +13,7 @@ import androidx.navigation.Navigation;
 
 import com.example.a7pr.R;
 import com.example.a7pr.databinding.FragmentHomeBinding;
-import com.example.a7pr.state_holder.HomeViewModel;
+import com.example.a7pr.ui.state_holder.HomeViewModel;
 
 public class HomeFragment extends Fragment {
 

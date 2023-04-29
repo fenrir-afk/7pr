@@ -1,4 +1,4 @@
-package com.example.a7pr.state_holder;
+package com.example.a7pr.ui.state_holder;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
