@@ -5,6 +5,8 @@ import static java.security.AccessController.getContext;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Environment;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +19,7 @@ import java.io.*;
 
 public class MuseumDataSource extends Application{
     private final List<Exhibit> ExhibitList;
+
     public MuseumDataSource() {
         ExhibitList = new ArrayList<>();
         String[] ExhibitNames = {"Pyatnitskisaurus","Tarbosauros","Allosaurus","evoplocephalus","Apatosaurus","Dodo","Dunkleosteus","Sarcosuchus","Titanoboa"};

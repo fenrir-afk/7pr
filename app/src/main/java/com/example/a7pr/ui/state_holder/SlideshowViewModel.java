@@ -8,6 +8,7 @@ import com.example.a7pr.Data.Models.Exhibit;
 import com.example.a7pr.Data.Repository.MuseumRepository;
 import com.example.a7pr.ui.SlideshowFragment;
 
+import java.io.FileOutputStream;
 import java.util.List;
 
 public class SlideshowViewModel extends ViewModel {
@@ -27,4 +28,5 @@ public class SlideshowViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
+
 }

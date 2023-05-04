@@ -1,5 +1,9 @@
 package com.example.a7pr.ui.state_holder;
 
+import android.app.Application;
+import android.content.Context;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -7,13 +11,23 @@ import androidx.lifecycle.ViewModel;
 import com.example.a7pr.Data.Models.Exhibit;
 import com.example.a7pr.Data.Repository.MuseumRepository;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class ResourcesViewModel extends ViewModel {
+public class ResourcesViewModel extends AndroidViewModel {
     private final MuseumRepository museumRepository;
     private final MutableLiveData<String> mText;
+    String userName = "";
+    public static final String FILE_NAME = "user_name";
 
-    public ResourcesViewModel() {
+    public ResourcesViewModel(Application application) {
+        super(application);
         this.museumRepository = new MuseumRepository();
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
@@ -21,7 +35,41 @@ public class ResourcesViewModel extends ViewModel {
     public LiveData<List<Exhibit>> getExhibitList(){
         return museumRepository.getExhibitList();
     }
+
+
     public LiveData<String> getText() {
         return mText;
+    }
+
+
+    public void writeUserName(String userName){/////////
+        try(FileOutputStream fos = getApplication().openFileOutput(FILE_NAME, Context.MODE_PRIVATE)) {
+            fos.write(userName.getBytes());
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public String readUserName(){ ////////
+        StringBuilder sb = new StringBuilder();
+        String userName = "";
+        try {
+            FileInputStream fis = getApplication().openFileInput(FILE_NAME);
+            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
+            BufferedReader br = new BufferedReader(inputStreamReader);
+            String line = br.readLine();
+            while (line != null) {
+                sb.append(line);
+                line = br.readLine();
+            }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            userName = sb.toString();
+        }
+        return userName.replace("\n","").replace("\r","");
     }
 }
