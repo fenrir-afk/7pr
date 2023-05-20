@@ -1,23 +1,14 @@
 package com.example.a7pr.Data.DataSource;
 
-import static java.security.AccessController.getContext;
-
 import android.app.Application;
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.os.Environment;
-import android.util.Log;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.a7pr.Data.Models.Exhibit;
 import com.example.a7pr.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.io.*;
 
-public class MuseumDataSource extends Application{
+public class MuseumDataSource extends  Application{
     private final List<Exhibit> ExhibitList;
 
     public MuseumDataSource() {
@@ -32,4 +23,5 @@ public class MuseumDataSource extends Application{
     public List<Exhibit> getExhibitList() {
         return ExhibitList;
     }
+
 }
