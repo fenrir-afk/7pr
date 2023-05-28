@@ -45,7 +45,15 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:layout_gravity="center_horizontal"/>
-
+    <Button
+        android:id="@+id/Button5"
+        android:textStyle="bold"
+        android:text="Share"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
